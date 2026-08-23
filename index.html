@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Britannica Magical Bite | Homemade Green Chilli Pickle</title>
+    <style>
+        :root {
+            --primary: #1e7e34;
+            --primary-dark: #155724;
+            --accent: #f1c40f;
+            --dark: #2c3e50;
+            --light-bg: #f9fbf9;
+            --card-bg: #ffffff;
+            --whatsapp-green: #25D366;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Hero Header */
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                        url('https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=1600&auto=format&fit=crop&q=80') center/cover no-repeat;
+            color: white;
+            padding: 70px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+        }
+
+        header p {
+            font-size: 1.2rem;
+            max-width: 650px;
+            margin: 0 auto;
+            opacity: 0.95;
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: var(--accent);
+            color: #000;
+            font-weight: 700;
+            padding: 6px 18px;
+            border-radius: 25px;
+            margin-top: 15px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        .container {
+            max-width: 1050px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 8px;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 25%;
+            width: 50%;
+            height: 3px;
+            background-color: var(--accent);
+            border-radius: 2px;
+        }
+
+        /* Products Grid */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .product-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #d4edda;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-6px);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            justify-content: space-between;
+        }
+
+        .card-body h3 {
+            font-size: 1.35rem;
+            color: var(--dark);
+            margin-bottom: 8px;
+        }
+
+        .card-body p {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        .price-tag {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #27ae60;
+            margin-bottom: 15px;
+        }
+
+        .btn-order-wa {
+            display: block;
+            text-align: center;
+            background-color: var(--whatsapp-green);
+            color: white;
+            text-decoration: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: background-color 0.2s;
+        }
+
+        .btn-order-wa:hover {
+            background-color: #1ebc59;
+        }
+
+        /* Ingredients & Recipe Box */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .info-box {
+            background: white;
+            border-radius: 12px;
+            padding: 28px;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+            border-top: 4px solid var(--primary);
+        }
+
+        .info-box h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .info-box ul {
+            padding-left: 20px;
+            color: #444;
+        }
+
+        .info-box ul li {
+            margin-bottom: 8px;
+        }
+
+        .step-list {
+            list-style: none;
+            counter-reset: step-counter;
+            padding-left: 0 !important;
+        }
+
+        .step-list li {
+            counter-increment: step-counter;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .step-list li::before {
+            content: counter(step-counter);
+            background-color: var(--primary);
+            color: white;
+            font-weight: bold;
+            border-radius: 50%;
+            width: 26px;
+            height: 26px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            flex-shrink: 0;
+            font-size: 0.85rem;
+        }
+
+        /* Contact Section */
+        .contact-box {
+            background: #e8f5e9;
+            border: 2px dashed var(--primary);
+            border-radius: 12px;
+            padding: 35px 20px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .contact-box h3 {
+            font-size: 1.6rem;
+            color: var(--primary-dark);
+            margin-bottom: 8px;
+        }
+
+        .btn-call-direct {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            padding: 14px 30px;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-top: 15px;
+            transition: background 0.2s;
+        }
+
+        .btn-call-direct:hover {
+            background: var(--primary-dark);
+        }
+
+        footer {
+            background: var(--dark);
+            color: #ecf0f1;
+            text-align: center;
+            padding: 25px 20px;
+            font-size: 0.9rem;
+        }
+
+        footer p {
+            margin: 4px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Banner -->
+    <header>
+        <h1>Britannica Magical Bite</h1>
+        <p>100% Traditional Homemade Green Chilli Pickle | Tangy, Spicy & Preservative-Free</p>
+        <span class="badge">Created by Sanjeev | Grade 5 Project</span>
+    </header>
+
+    <div class="container">
+        
+        <!-- Products Section -->
+        <div class="section-header">
+            <h2>Our Green Chilli Varieties</h2>
+        </div>
+
+        <div class="products-grid">
+            <!-- Product 1: Classic Green Chilli Pickle -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=800&auto=format&fit=crop&q=80" alt="Classic Green Chilli Pickle">
+                <div class="card-body">
+                    <div>
+                        <h3>Classic Green Chilli Pickle</h3>
+                        <p>Fresh green chillies slit and marinated with crushed yellow mustard seeds, lemon juice, turmeric, and pure cold-pressed oil.</p>
+                    </div>
+                    <div>
+                        <div class="price-tag">₹110 <span style="font-size: 0.8rem; color: #888;">/ 250g Jar</span></div>
+                        <a href="https://wa.me/919876543210?text=Hi%20Britannica%20Magical%20Bite,%20I%20would%20like%20to%20order%20the%20Classic%20Green%20Chilli%20Pickle%20(250g)." class="btn-order-wa" target="_blank">Order via WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 2: Lemon & Green Chilli Pickle -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?w=800&auto=format&fit=crop&q=80" alt="Lemon Green Chilli Mix Pickle">
+                <div class="card-body">
+                    <div>
+                        <h3>Tangy Green Chilli & Lemon</h3>
+                        <p>A mouthwatering combination of crunchy green chillies soaked in sun-cured lemon juice and aromatic roasted spices.</p>
+                    </div>
+                    <div>
+                        <div class="price-tag">₹130 <span style="font-size: 0.8rem; color: #888;">/ 250g Jar</span></div>
+                        <a href="https://wa.me/919876543210?text=Hi%20Britannica%20Magical%20Bite,%20I%20would%20like%20to%20order%20the%20Tangy%20Green%20Chilli%20%26%20Lemon%20Pickle." class="btn-order-wa" target="_blank">Order via WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recipe & Ingredients Section -->
+        <div class="section-header">
+            <h2>Preparation & Authentic Ingredients</h2>
+        </div>
+
+        <div class="info-grid">
+            <!-- Key Ingredients -->
+            <div class="info-box">
+                <h3>Pure & Natural Ingredients</h3>
+                <ul>
+                    <li><strong>Fresh Green Chillies:</strong> Hand-picked, thick, and crisp chillies.</li>
+                    <li><strong>Spices:</strong> Coarsely ground mustard seeds (Rai), fennel seeds (Saunf), and fenugreek (Methi).</li>
+                    <li><strong>Seasoning:</strong> Pure rock salt, turmeric powder, and asafoetida (Hing).</li>
+                    <li><strong>Tanginess:</strong> Fresh squeezed lemon juice.</li>
+                    <li><strong>Oil:</strong> Cold-pressed mustard / sesame oil.</li>
+                </ul>
+            </div>
+
+            <!-- Step-by-Step Preparation -->
+            <div class="info-box">
+                <h3>Our Step-by-Step Recipe</h3>
+                <ul class="step-list">
+                    <li>
+                        <strong>Washing & Sun-Drying:</strong> Chillies are thoroughly washed, wiped completely dry with a clean cloth, and air-dried to remove all moisture.
+                    </li>
+                    <li>
+                        <strong>Slitting:</strong> Each green chilli is slit lengthwise or chopped into bite-sized pieces.
+                    </li>
+                    <li>
+                        <strong>Spice Blend:</strong> Freshly roasted mustard, fennel, salt, and turmeric are mixed with warm oil and lemon extract.
+                    </li>
+                    <li>
+                        <strong>Marination:</strong> Chillies are tossed into the spice blend and left in sterile glass jars for 2 to 3 days to develop peak flavor.
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Direct Contact Section -->
+        <div class="contact-box">
+            <h3>Direct Orders & Enquiries</h3>
+            <p>For custom quantities or local home delivery, click below to contact us directly:</p>
+            <a href="tel:+919876543210" class="btn-call-direct">📞 Call Us: +91 978 978 1271</a>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Britannica Magical Bite. All rights reserved.</p>
+        <p>School Web Development Project &bull; Created by Sanjeev (Class 5)</p>
+    </footer>
+
+</body>
+</html>
